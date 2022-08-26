@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static int GmStatus; //게임 개발 수치
+    public static int GmStatus = 0; //게임 개발 수치
+    public static int GmStatusPlus = 10; //초당 올라가는 개발수치
+    static int GmNum = 0; //만든 총 게임 개수
+
 
     public Text SliderText; //게임 개발 수치 텍스트
     public Slider SliderBar; //게임 개발 수치 슬라이더
@@ -21,7 +24,15 @@ public class GameManager : MonoBehaviour
     IEnumerator GameMaking() //게임 개발 과정
     {
         yield return new WaitForSeconds(1); //1초마다
-        GmStatus += 10; //게임 개발 수치를 10 높임
+        if (GmStatus >= 10000) //만약 개발 수치가 꽉 차면
+        {
+            GmNum++; //게임 개수를 하나 늘리고
+            GmStatus = 0; //개발 수치는 초기화
+        }
+        else //개발 수치가 꽉 차지 않았다면
+        {
+            GmStatus += GmStatusPlus; //게임 개발 수치를 높임
+        }
         StartCoroutine(GameMaking()); //다시 실행
     }
     void GmStatusSlider()
