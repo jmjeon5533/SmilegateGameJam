@@ -27,7 +27,6 @@ public class Character : GameManager
     {
         if (IsBurnOut == false && IsHungry == false && IsTired == false)
         {
-            Abort = false;
             // 15~45초 범위 이내로 디버프 쿨 타임을 정해주는 구문
             DeBuff_Time = Random.Range(1, 6);
             yield return new WaitForSecondsRealtime(DeBuff_Time);
@@ -60,7 +59,6 @@ public class Character : GameManager
         {
             GmStatusPlus /= 2;
             yield return new WaitForSecondsRealtime(20);
-            Abort = true;
         }
 
         yield return new WaitForSecondsRealtime(DeBuff_Time);
