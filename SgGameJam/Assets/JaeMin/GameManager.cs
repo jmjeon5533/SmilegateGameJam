@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static int GmStatus = 0; //게임 개발 수치
     public static int GmStatusPlus = 10; //초당 올라가는 개발수치
     static int GmNum = 0; //만든 총 게임 개수
+    public static bool Abort = false; //개발 중단 상태
 
 
     public Text SliderText; //게임 개발 수치 텍스트
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
             GmNum++; //게임 개수를 하나 늘리고
             GmStatus = 0; //개발 수치는 초기화
         }
-        else //개발 수치가 꽉 차지 않았다면
+        else if(GmStatus <= 10000 && !Abort) //개발 수치가 꽉 차지 않았다면
         {
             GmStatus += GmStatusPlus; //게임 개발 수치를 높임
         }
