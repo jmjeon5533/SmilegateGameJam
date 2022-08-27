@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SupplyManager : MonoBehaviour
 {
@@ -9,8 +10,11 @@ public class SupplyManager : MonoBehaviour
     [SerializeField]
     public int Supplydelay; //보급이 올 시간
     public static bool Supplykit = false; //보급 보유 유무
+
     public int Supplymin;
     public int SupplyMax;
+
+    public static bool OptionOn = false;
 
     public Item[] RandomItem = new Item[11];
     void Start()
@@ -22,7 +26,10 @@ public class SupplyManager : MonoBehaviour
     }
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Option();
+        }
     }
     public IEnumerator Supply() //보급
     {
@@ -46,5 +53,13 @@ public class SupplyManager : MonoBehaviour
         {
             print("슬롯이 가득 차 있습니다.");
         }
+    }
+    public void Option()
+    {
+        OptionOn = !OptionOn;
+    }
+    public void Exit()
+    {
+        SceneManager.LoadScene("Title");
     }
 }

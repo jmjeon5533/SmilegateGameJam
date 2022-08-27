@@ -15,11 +15,6 @@ public class Inventory : SupplyManager
     public Transform slotParent;
 
     public Slot[] slots;
-
-    private void OnValidate()
-    {
-       // slots = slotParent.GetComponentsInChildren<Slot>();
-    }
     private void Awake()
     {
         FreshSlot();

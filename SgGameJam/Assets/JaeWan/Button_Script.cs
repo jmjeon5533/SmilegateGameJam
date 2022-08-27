@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 public class Button_Script : Shop_Manager
 {
-
     void Start()
     {
 
@@ -27,6 +26,7 @@ public class Button_Script : Shop_Manager
     public void Go_Title()
     {
         SceneManager.LoadScene(0);
+
     }
     public void Go_Shop() 
     {
