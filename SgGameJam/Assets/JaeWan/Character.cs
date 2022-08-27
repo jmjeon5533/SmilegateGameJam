@@ -30,7 +30,7 @@ public class Character : GameManager
     public int DeBuff_Time_Min;
     public int DeBuff_Time_Max;
 
-    public static int Plus, PlusUnDebuff = 10,PlusDebuff = 5;//개발 수치 추가량
+    public static int Plus;
 
     int Count = 0; //초
 
@@ -44,13 +44,12 @@ public class Character : GameManager
     {
         CheatKey();
         GameManager.GmStatusPlus = Plus; //개발 수치 증가량 적용
-        texts.text = Plus + " 올라요";
         test.text = $"허기 : {IsHungry}, 피로 : {IsTired}, 번아웃 : {IsBurnOut}";
 
 
         if (IsBurnOut == true) //스프라이트 변경
         {
-            spr.sprite = sprites[0]; 
+            spr.sprite = sprites[0];
         }
         else if (IsHungry == true)
         {
@@ -60,7 +59,7 @@ public class Character : GameManager
         {
             spr.sprite = sprites[2];
         }
-        else 
+        else
         {
             spr.sprite = sprites[3];
         }
@@ -68,13 +67,13 @@ public class Character : GameManager
     IEnumerator De_Buff() //디버프
     {
         Debug.Log("디버프 실행");
-        if (IsHungry == false && IsBurnOut == false && IsTired == false)  
-            //모든 디버프 비활성화일때
+        if (IsHungry == false && IsBurnOut == false && IsTired == false)
+        //모든 디버프 비활성화일때
         {
-            Plus = PlusUnDebuff; //추가량은 기본 10
-            DeBuff_Time = Random.Range(DeBuff_Time_Min,DeBuff_Time_Max); //임의의 디버프 쿨타임 지정
+            Plus = 10;
+            DeBuff_Time = Random.Range(DeBuff_Time_Min, DeBuff_Time_Max); //임의의 디버프 쿨타임 지정
             yield return new WaitForSecondsRealtime(DeBuff_Time); //디버프 쿨타임
-            DeBuff_Range = Random.Range(1,4); //디버프 랜덤 상태
+            DeBuff_Range = Random.Range(1, 4); //디버프 랜덤 상태
         }
         // 랜덤값 검사
         if (IsBurnOut == false && IsHungry == false && IsTired == false)
@@ -100,31 +99,21 @@ public class Character : GameManager
             }
         }
         if (IsBurnOut == true || IsHungry == true || IsTired == true)
-        //만약 3개중 하나라도 활성화 되면
         {
-            Plus = PlusDebuff; //추가량은 5
-            for (int i = 0; i < 20; i++)
-            {
-                if (IsBurnOut == false && IsHungry == false && IsTired == false)
-                    break;
-                else
-                    yield return new WaitForSeconds(1);
-            }
-            Plus = 0; //추가량 없음
+            Plus = 0;
         }
-        if (IsBurnOut == false && IsHungry == false && IsTired == false)
+        else if (IsBurnOut == false && IsHungry == false && IsTired == false)
         //3개 다 비활성화 상태라면
         {
-            Plus = PlusUnDebuff; //추가량은 10
-            //임의의 쿨타임 초기화
+            Plus = 10; //추가량은 10
         }
         StartCoroutine(De_Buff()); //이후 쿨타임 돌리기
     }
 
     // 이 함수는 개발용 함수기에 완성 후에는 지워주세요.
-    void CheatKey() 
+    void CheatKey()
     {
-        if (Input.GetKeyDown(KeyCode.Q)) 
+        if (Input.GetKeyDown(KeyCode.Q))
             IsBurnOut = false;
 
         if (Input.GetKeyDown(KeyCode.W))
@@ -133,100 +122,124 @@ public class Character : GameManager
         if (Input.GetKeyDown(KeyCode.E))
             IsHungry = false;
     }
-    /// 긍정적 아이템 ▽▽▽▽▽▽
-    public void Good_Americano()
+    /// 버프 아이템 ▽▽▽▽▽▽
+    public void Good_Ggum()
     {
-        // 의지 박약 상태 회복 / 초당 작업량 +2
-        IsBurnOut = false;
-        Abort = false;
-        if(IsBurnOut == false && IsHungry == false && IsTired == false)
-        {
-            Plus = PlusUnDebuff + 2;
-        }
-        else if(IsBurnOut == true || IsHungry == true || IsTired == true)
-        {
-            Plus = PlusDebuff + 2;
-        }
-    }
-
-    public void Good_Monster()
-    {
-        // 초당 작업량 + 8
-        Abort = false;
+        //초당 작업량 + 2
         if (IsBurnOut == false && IsHungry == false && IsTired == false)
         {
-            Plus = PlusUnDebuff + 8;
+            Plus = 12;
         }
         else if (IsBurnOut == true || IsHungry == true || IsTired == true)
         {
-            Plus = PlusDebuff + 8;
+            Plus = 7;
         }
     }
-
-    public void Good_PowerAde()
+    public void Good_Americano()
     {
-        // 캐릭터의 모든 상태이상 회복
-        Abort = false;
-        IsBurnOut = false;
-        IsHungry = false;
-        IsTired = false;
+        //초당 작업량 + 4
+        if (IsBurnOut == false && IsHungry == false && IsTired == false)
+        {
+            Plus = 14;
+        }
+        else if (IsBurnOut == true || IsHungry == true || IsTired == true)
+        {
+            Plus = 9;
+        }
     }
     public void Good_JinRamen()
     {
-        // 허기짐 상태 회복 / 초당 작업량 +3
-        Abort = false;
+        //초당 작업량 + 6 
+        if (IsBurnOut == false && IsHungry == false && IsTired == false)
+        {
+            Plus = 16;
+        }
+        else if (IsBurnOut == true || IsHungry == true || IsTired == true)
+        {
+            Plus = 11;
+        }
+    }
+    /// 상태이상 해제 아이템
+    public void Good_PowerAde()
+    {
+        // 캐릭터의 모든 상태이상 회복
+        IsBurnOut = false;
         IsHungry = false;
-        if (IsBurnOut == false && IsHungry == false && IsTired == false)
-        {
-            Plus = PlusUnDebuff + 3;
-        }
-        else if (IsBurnOut == true || IsHungry == true || IsTired == true)
-        {
-            Plus = PlusDebuff + 3;
-        }
-    }
-    public void Good_Ggum()
-    {
-        // 피로 상태 회복 / 초당 작업량 +4
-        Abort = false;
         IsTired = false;
-        if (IsBurnOut == false && IsHungry == false && IsTired == false)
-        {
-            Plus = PlusUnDebuff + 4;
-        }
-        else if (IsBurnOut == true || IsHungry == true || IsTired == true)
-        {
-            Plus = PlusDebuff + 4;
-        }
     }
-
-    /// 부정적 아이템 ▽▽▽▽▽▽
-    public void Bad_HoneyButter()
-    {
-        // 의지 박약 상태로 만듬
-        IsBurnOut = true;
-    }
-
     public void Bad_CanCoffee()
     {
-        // 피로 상태로 만듬
-        IsTired = true;
+        // 피로 상태를 해제
+        IsTired = false;
     }
 
-    public void Bad_BlueFill()
-    {
-        // 게임 진척도 10% 깎는다
-        GameManager.GmStatus -= (GameManager.GmStatus / 10);
-    }
     public void Bad_Yagurt()
     {
-        //  허기짐 상태로 만듬
-        IsHungry = true;
+        //번아웃 상태를 해제
+        IsBurnOut = false;
+    }
+    public void Bad_HoneyButter()
+    {
+        // 배고픔 상태를 해제
+        IsHungry = false;
+    }
+    /// 상태이상 해제 & 버프 아이템
+    public void Good_Monster()
+    {
+        //번아웃 상태를 해제 / 초당 작업량 + 7
+        IsBurnOut = false;
+        if (IsBurnOut == false && IsHungry == false && IsTired == false)
+        {
+            Plus = 17;
+        }
+        else if (IsBurnOut == true || IsHungry == true || IsTired == true)
+        {
+            Plus = 7;
+        }
     }
     public void Bad_Chiken()
     {
-        // 허기짐 상태 회복 / 작업량 없음
+        // 허기짐 상태 회복 / 초당 작업량 + 12
         IsHungry = false;
-        Plus = 0;
+        if (IsBurnOut == false && IsHungry == false && IsTired == false)
+        {
+            Plus = 22;
+        }
+        else if (IsBurnOut == true || IsHungry == true || IsTired == true)
+        {
+            Plus = 17;
+        }
+    }
+    
+
+    /// 특수 아이템 ▽▽▽▽▽▽
+    public void Bad_BlueFill()
+    {
+        DeBuff_Range = Random.Range(1, 3); //디버프 랜덤 상태
+
+        if (IsBurnOut == false && IsHungry == false && IsTired == false)
+        //디버프가 하나도 없을 때
+        {
+            switch (DeBuff_Range) //랜덤으로 나옴
+            {
+                case 1:
+                    IsBurnOut = true; //번아웃 활성화
+                    break;
+
+                case 2:
+                    IsTired = true; //피로 활성화
+                    break;
+
+                case 3:
+                    IsHungry = true; //배고픔 활성화
+                    break;
+            }
+        }
+        else if (IsBurnOut == true || IsHungry == true || IsTired == true)
+        {
+            IsBurnOut = false;
+            IsTired = false;
+            IsHungry = false;
+        }
     }
 }

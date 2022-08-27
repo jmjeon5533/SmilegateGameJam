@@ -42,16 +42,13 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         GmStatusSlider();
-        Mathf.Clamp(moneyValue2, 3000, 1000000); //추가될 돈의 최소값 = 3000
     }
     IEnumerator GameMaking() //게임 개발 과정
     {
         yield return new WaitForSeconds(1); //1초마다
         if (GmStatus >= 10000) //만약 개발 수치가 꽉 차면
         {
-            GmNum++; //게임 개수를 하나 늘리고
-            moneyValue2 = moneyValue - (time * 50); //10000 - 50 * (초) 만큼
-            GmMoney += moneyValue2; //돈을 얻는다
+            GmMoney += 300000;
 
 
             //게임 외적 재화를 깬 시간에 반비례해 얻기
@@ -67,7 +64,7 @@ public class GameManager : MonoBehaviour
     }
     void GmStatusSlider()
     {
-        SliderText.text = $"{GmStatus/100}%"; //계속 개발 수치 텍스트 보여주기
+        SliderText.text = $"{(GmStatus/5000)*100}%"; //계속 개발 수치 텍스트 보여주기
         SliderBar.value = GmStatus; //계속 개발 수치 슬라이더 보여주기
     }
 }
