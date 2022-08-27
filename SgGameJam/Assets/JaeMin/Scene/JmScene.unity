@@ -600,6 +600,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 551664850}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8629586365819377227, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
       propertyPath: m_Name
       value: Slot (4)
@@ -793,6 +805,7 @@ GameObject:
   - component: {fileID: 551664848}
   - component: {fileID: 551664847}
   - component: {fileID: 551664849}
+  - component: {fileID: 551664850}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -872,6 +885,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e82b7a5aa0f9c6479666ba7c96d8505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Supplydelay: 0
+  RandomItem:
+  - {fileID: 11400000, guid: 1fd8f727ecb27e14b9054cc4ad031b76, type: 2}
+  - {fileID: 11400000, guid: 90ca526d5098eeb48bde2022fbabc1d6, type: 2}
+  - {fileID: 11400000, guid: 0a88cba8758278e46ae777d6f5884092, type: 2}
+  - {fileID: 11400000, guid: 9560142f1f3941041a928152440f9ebd, type: 2}
+  - {fileID: 11400000, guid: 77c19d9fad7ea54469c97c304919606b, type: 2}
+  - {fileID: 11400000, guid: 14d5464859d6ee242ba8dbe85a09a275, type: 2}
+  - {fileID: 11400000, guid: e2d2a340e6ac5e9489e271e314041d59, type: 2}
+  - {fileID: 11400000, guid: 16267dd3b99bcbd41a0590740c18f47e, type: 2}
+  - {fileID: 11400000, guid: 21f261b9347c61c40863584475227eda, type: 2}
+  - {fileID: 11400000, guid: 13ae0a9e40e92a94f8cb46a925580008, type: 2}
   IsInv: 0
   items:
   - {fileID: 11400000, guid: 1fd8f727ecb27e14b9054cc4ad031b76, type: 2}
@@ -889,6 +914,18 @@ MonoBehaviour:
   - {fileID: 760942560}
   - {fileID: 113296206}
   - {fileID: 1981378638}
+--- !u!114 &551664850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551664845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 337b38e1ad4567443b463ed3f760661a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &606566785 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5584991371804813651, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
@@ -984,9 +1021,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SupplyManager, Assembly-CSharp
-        m_MethodName: SupplyButton
+      - m_Target: {fileID: 551664849}
+        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+        m_MethodName: Additem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1192,6 +1229,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 551664850}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8629586365819377227, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
       propertyPath: m_Name
       value: Slot (2)
@@ -1331,10 +1380,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86349efa49009a148a9a1debb9ee718a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsInv: 0
-  items: []
-  slotParent: {fileID: 0}
-  slots: []
   Supplydelay: 0
   RandomItem: []
 --- !u!1 &927491824
@@ -1696,6 +1741,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 551664850}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8629586365819377227, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
       propertyPath: m_Name
       value: Slot (7)
@@ -1991,6 +2048,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 551664850}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8629586365819377227, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
       propertyPath: m_Name
       value: Slot (11)
@@ -2225,6 +2294,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 551664850}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8629586365819377227, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
       propertyPath: m_Name
       value: Slot (10)
@@ -2321,6 +2402,18 @@ PrefabInstance:
     - target: {fileID: 1151669885112690232, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 551664850}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8629586365819377227, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
       propertyPath: m_Name
@@ -2419,6 +2512,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 551664850}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8629586365819377227, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
       propertyPath: m_Name
       value: Slot (8)
@@ -2516,6 +2621,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 551664850}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 8629586365819377227, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
       propertyPath: m_Name
       value: Slot (9)
@@ -2612,6 +2729,18 @@ PrefabInstance:
     - target: {fileID: 1151669885112690232, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 551664850}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8629586365819377227, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
       propertyPath: m_Name
@@ -2839,6 +2968,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 551664850}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8629586365819377227, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
       propertyPath: m_Name
       value: Slot (1)
@@ -2935,6 +3076,18 @@ PrefabInstance:
     - target: {fileID: 1151669885112690232, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 551664850}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8629586365819377227, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
       propertyPath: m_Name
@@ -3118,6 +3271,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 551664850}
+    - target: {fileID: 4372218832752383925, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Button
+      objectReference: {fileID: 0}
     - target: {fileID: 8629586365819377227, guid: 01712d8e222b9a24f9880fd5fee72f1a, type: 3}
       propertyPath: m_Name
       value: Slot
@@ -3274,31 +3435,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4c82992228969347b94845cf203076d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsInv: 0
-  items:
-  - {fileID: 11400000, guid: 1fd8f727ecb27e14b9054cc4ad031b76, type: 2}
-  - {fileID: 11400000, guid: 90ca526d5098eeb48bde2022fbabc1d6, type: 2}
-  - {fileID: 11400000, guid: 0a88cba8758278e46ae777d6f5884092, type: 2}
-  - {fileID: 11400000, guid: 9560142f1f3941041a928152440f9ebd, type: 2}
-  - {fileID: 11400000, guid: 77c19d9fad7ea54469c97c304919606b, type: 2}
-  - {fileID: 11400000, guid: 14d5464859d6ee242ba8dbe85a09a275, type: 2}
-  - {fileID: 11400000, guid: e2d2a340e6ac5e9489e271e314041d59, type: 2}
-  - {fileID: 11400000, guid: 16267dd3b99bcbd41a0590740c18f47e, type: 2}
-  - {fileID: 11400000, guid: 21f261b9347c61c40863584475227eda, type: 2}
-  - {fileID: 11400000, guid: 13ae0a9e40e92a94f8cb46a925580008, type: 2}
-  slotParent: {fileID: 1683767304}
-  slots:
-  - {fileID: 22794382}
-  - {fileID: 606566785}
-  - {fileID: 386484258}
-  - {fileID: 491343734}
-  - {fileID: 844301081}
-  - {fileID: 382345840}
-  - {fileID: 1702588517}
-  - {fileID: 914521804}
-  - {fileID: 1072143376}
-  - {fileID: 760942560}
-  - {fileID: 113296206}
-  - {fileID: 1981378638}
   Supplydelay: 0
-  RandomItem: []
+  RandomItem:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
