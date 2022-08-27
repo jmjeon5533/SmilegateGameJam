@@ -3277,7 +3277,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00018310547, y: 0}
+  m_AnchoredPosition: {x: -0.00024414062, y: 0}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1002880269
@@ -7421,8 +7421,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Supplydelay: 0
-  Supplymin: 60
-  SupplyMax: 90
+  Supplymin: 30
+  SupplyMax: 60
   RandomItem:
   - {fileID: 11400000, guid: 1fd8f727ecb27e14b9054cc4ad031b76, type: 2}
   - {fileID: 11400000, guid: 90ca526d5098eeb48bde2022fbabc1d6, type: 2}
