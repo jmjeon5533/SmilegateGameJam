@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Inventory : SupplyManager
 {
     RectTransform rect;
     int RectPosition;
@@ -17,7 +17,7 @@ public class Inventory : MonoBehaviour
 
     private void OnValidate()
     {
-        slots = slotParent.GetComponentsInChildren<Slot>();
+       // slots = slotParent.GetComponentsInChildren<Slot>();
     }
     private void Awake()
     {
@@ -31,6 +31,7 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FreshSlot();
         if (IsInv)
             RectPosition = 0;
         else
@@ -49,11 +50,11 @@ public class Inventory : MonoBehaviour
             slots[i].item = null;
         }
     }
-    public void Additem(Item _item)
+    public void Additem()
     {
         if (items.Count < slots.Length)
         {
-            items.Add(_item);
+            items.Add(RandomItem[Random.Range(0,10)]);
             FreshSlot();
         }
         else

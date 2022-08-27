@@ -8,6 +8,8 @@ public class SupplyManager : MonoBehaviour
     [SerializeField]
     int Supplydelay; //보급이 올 시간
     public static bool Supplykit = false; //보급 보유 유무
+
+    public Item[] RandomItem = new Item[11];
     void Start()
     {
         Supplydelay = Random.Range(60, 90); 
@@ -27,6 +29,7 @@ public class SupplyManager : MonoBehaviour
     }
     public void SupplyButton() //보급을 받는 버튼
     {
+        
         Supplykit = false;
         Supplydelay = Random.Range(60, 90); //보급 시간 재조정
         StartCoroutine(Supply()); //다시 기다리기

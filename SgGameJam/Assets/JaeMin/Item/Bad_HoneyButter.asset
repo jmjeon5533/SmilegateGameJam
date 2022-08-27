@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Bad_HoneyButter
   m_EditorClassIdentifier: 
   itemName: Bad_HoneyButter
-  ItemImage: {fileID: 0}
+  ItemImage: {fileID: 21300000, guid: 79cb6c49cf6ea214d8de50ad853a5f48, type: 3}

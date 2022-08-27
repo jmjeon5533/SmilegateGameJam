@@ -23,11 +23,9 @@ public class Supply : SupplyManager
         {
             rect.anchoredPosition = new Vector2(Mathf.Lerp(rect.anchoredPosition.x,0, 0.05f), 75);
         }
-        /*
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Supplykit = !Supplykit;
         }
-        */
     }
 }
