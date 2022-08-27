@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Character : GameManager
+public class Character : MonoBehaviour
 {
     //피로 상태
     public static bool IsTired = false;
@@ -44,7 +44,6 @@ public class Character : GameManager
     {
         CheatKey();
         GameManager.GmStatusPlus = Plus; //개발 수치 증가량 적용
-        test.text = $"허기 : {IsHungry}, 피로 : {IsTired}, 번아웃 : {IsBurnOut}";
 
 
         if (IsBurnOut == true) //스프라이트 변경
