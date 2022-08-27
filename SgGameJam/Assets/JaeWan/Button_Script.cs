@@ -14,15 +14,6 @@ public class Button_Script : Shop_Manager
     {
 
     }
-    public void Left()
-    {
-        Shop_Page_Value--;
-    }
-    public void Right()
-    {
-        Shop_Page_Value++;
-    }
-
     public void Go_Title()
     {
         SceneManager.LoadScene(0);
@@ -43,5 +34,53 @@ public class Button_Script : Shop_Manager
     public void GameQuit() 
     {
         Application.Quit();
+    }
+    public void Flower_Buy() 
+    {
+        if (GmMoney >= 50000)
+        {
+            IsFlower = true;
+        }
+        else 
+        {
+            IsFlower = false;
+        }
+    }
+    public void Console_Buy() 
+    {
+        if (GmMoney >= 1000000)
+        {
+            IsConsole = true;
+        }
+        else
+        {
+            IsConsole = false;
+        }
+    }
+    public void Bear_Buy()
+    {
+        if (GmMoney >= 30000)
+        {
+            IsBear = true;
+        }
+        else 
+        {
+            IsBear = false;
+        }
+    }
+    public void Cabinet_Buy()
+    {
+        if (GmMoney >= 200000)
+        {
+            IsCabinet = true;
+        }
+        else
+        {
+            IsCabinet = false;
+        }
+    }
+    public void Poster_Buy() 
+    {
+        IsPoster = true;
     }
 }

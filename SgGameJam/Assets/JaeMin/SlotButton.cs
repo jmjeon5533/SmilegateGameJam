@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlotButton : Item_Manager
+public class SlotButton : Character
 {
     Inventory inven;
     void Start()

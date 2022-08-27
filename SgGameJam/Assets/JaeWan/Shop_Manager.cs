@@ -2,45 +2,53 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shop_Manager : MonoBehaviour
+public class Shop_Manager : GameManager
 {
-    [SerializeField]
-    GameObject Shop_1;
-    [SerializeField]
-    GameObject Shop_2;
+    public static bool IsFlower = false;
+    public static bool IsConsole = false;
+    public static bool IsBear = false;
+    public static bool IsCabinet = false;
+    public static bool IsPoster = false;
 
-    public static int Shop_Page_Value = 1;
+    [SerializeField]
+    GameObject Flower_Button;
+    [SerializeField]
+    GameObject Bear_Button;
+    [SerializeField]
+    GameObject Cabinet_Button;
+    [SerializeField]
+    GameObject Poster_Button;
+    [SerializeField]
+    GameObject Console_Button;
     void Start()
     {
         
     }
-
     void Update()
     {
-        Shop_Page();
-    }
-    void Shop_Page()
-    {
-        if (Shop_Page_Value > 2)
+        if (IsFlower == true)
         {
-            Shop_Page_Value = 1;
+            Flower_Button.SetActive(false);
         }
-        else if (Shop_Page_Value < 0) 
+
+        if (IsConsole == true)
         {
-            Shop_Page_Value = 2;
+            Console_Button.SetActive(false);
         }
-        switch (Shop_Page_Value)
+
+        if (IsBear == true)
         {
-            case 1:
-                Shop_1.SetActive(true);
-                Shop_2.SetActive(false);
-                break;
-            case 2:
-                Shop_1.SetActive(false);
-                Shop_2.SetActive(true);
-                break;
-            default:
-                break;
+            Bear_Button.SetActive(false);
+        }
+
+        if (IsCabinet == true)
+        {
+            Cabinet_Button.SetActive(false);
+        }
+
+        if (IsPoster == true)
+        {
+            Poster_Button.SetActive(false);
         }
     }
 }

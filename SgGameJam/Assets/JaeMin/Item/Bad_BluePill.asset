@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Bad_BluePill
   m_EditorClassIdentifier: 
   itemName: Bad_BluePill
-  ItemImage: {fileID: 21300000, guid: 7eb8bd0ac1d40884b8e3d5cce623c431, type: 3}
+  ItemImage: {fileID: 21300000, guid: 5ef45fc053465404680d0b3724f6a4d0, type: 3}

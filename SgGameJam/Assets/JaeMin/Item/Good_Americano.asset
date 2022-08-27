@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Good_Americano
   m_EditorClassIdentifier: 
   itemName: Good_Americano
-  ItemImage: {fileID: 21300000, guid: 91279288751f520479fe45dc5be1349f, type: 3}
+  ItemImage: {fileID: 21300000, guid: f4beea97341abd546aa68c5a4cc8d9b9, type: 3}
