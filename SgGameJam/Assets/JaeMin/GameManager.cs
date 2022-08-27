@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static int GmStatusPlus = 10; //초당 올라가는 개발수치
     static int GmNum = 0; //만든 총 게임 개수
 
+  
 
     public Text SliderText; //게임 개발 수치 텍스트
     public Slider SliderBar; //게임 개발 수치 슬라이더
