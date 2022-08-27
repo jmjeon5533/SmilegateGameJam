@@ -58,6 +58,5 @@ public class SlotButton : MonoBehaviour
             print("10");
         }
         inven.items.RemoveAt(_item);
-
     }
 }

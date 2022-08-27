@@ -886,6 +886,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Supplydelay: 0
+  Supplymin: 0
+  SupplyMax: 90
   RandomItem:
   - {fileID: 11400000, guid: 1fd8f727ecb27e14b9054cc4ad031b76, type: 2}
   - {fileID: 11400000, guid: 90ca526d5098eeb48bde2022fbabc1d6, type: 2}
@@ -897,6 +899,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 16267dd3b99bcbd41a0590740c18f47e, type: 2}
   - {fileID: 11400000, guid: 21f261b9347c61c40863584475227eda, type: 2}
   - {fileID: 11400000, guid: 13ae0a9e40e92a94f8cb46a925580008, type: 2}
+  RectPosition: 0
   IsInv: 0
   items:
   - {fileID: 11400000, guid: 1fd8f727ecb27e14b9054cc4ad031b76, type: 2}
@@ -1021,8 +1024,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 551664849}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+      - m_Target: {fileID: 2108077967}
+        m_TargetAssemblyTypeName: SupplyManager, Assembly-CSharp
         m_MethodName: Additem
         m_Mode: 1
         m_Arguments:
@@ -1381,6 +1384,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Supplydelay: 0
+  Supplymin: 0
+  SupplyMax: 90
   RandomItem: []
 --- !u!1 &927491824
 GameObject:
@@ -3436,6 +3441,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Supplydelay: 0
+  Supplymin: 60
+  SupplyMax: 90
   RandomItem:
   - {fileID: 0}
   - {fileID: 0}

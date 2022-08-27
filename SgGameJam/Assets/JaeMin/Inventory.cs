@@ -5,15 +5,16 @@ using UnityEngine;
 public class Inventory : SupplyManager
 {
     RectTransform rect;
-    int RectPosition;
+    public int RectPosition;
     public bool IsInv = false;
 
     public List<Item> items;
 
-    [SerializeField]
-    private Transform slotParent;
-    [SerializeField]
-    private Slot[] slots;
+    SupplyManager Sm;
+
+    public Transform slotParent;
+
+    public Slot[] slots;
 
     private void OnValidate()
     {
@@ -48,18 +49,6 @@ public class Inventory : SupplyManager
         for (; i < slots.Length; i++)
         {
             slots[i].item = null;
-        }
-    }
-    public void Additem()
-    {
-        if (items.Count < slots.Length)
-        {
-            items.Add(RandomItem[Random.Range(0,10)]);
-            FreshSlot();
-        }
-        else
-        {
-            print("½½·ÔÀÌ °¡µæ Â÷ ÀÖ½À´Ï´Ù.");
         }
     }
     public void InvUIOn()
