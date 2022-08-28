@@ -3,8 +3,10 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Button_Script : Shop_Manager
+public class Button_Script : MonoBehaviour
 {
+    [SerializeField]
+    GameObject manager;
     void Start()
     {
 
@@ -16,8 +18,8 @@ public class Button_Script : Shop_Manager
     }
     public void Go_Title()
     {
+        Destroy(manager);
         SceneManager.LoadScene(0);
-
     }
     public void Go_Shop() 
     {
@@ -34,53 +36,59 @@ public class Button_Script : Shop_Manager
     public void GameQuit() 
     {
         Application.Quit();
+        PlayerPrefs.SetInt("Money", GameManager.GmMoney);
+        PlayerPrefs.Save();
     }
     public void Flower_Buy() 
     {
-        if (GmMoney >= 50000)
+        if (GameManager.GmMoney >= 50000)
         {
-            IsFlower = true;
+            Shop_Manager.IsFlower = true;
+            GameManager.GmMoney -= 50000;
         }
         else 
         {
-            IsFlower = false;
+            Shop_Manager.IsFlower = false;
         }
     }
     public void Console_Buy() 
     {
-        if (GmMoney >= 1000000)
+        if (GameManager.GmMoney >= 1000000)
         {
-            IsConsole = true;
+            Shop_Manager.IsConsole = true;
+            GameManager.GmMoney -= 1000000;
         }
         else
         {
-            IsConsole = false;
+            Shop_Manager.IsConsole = false;
         }
     }
     public void Bear_Buy()
     {
-        if (GmMoney >= 30000)
+        if (GameManager.GmMoney >= 30000)
         {
-            IsBear = true;
+            Shop_Manager.IsBear = true;
+            GameManager.GmMoney -= 30000;
         }
         else 
         {
-            IsBear = false;
+            Shop_Manager.IsBear = false;
         }
     }
     public void Cabinet_Buy()
     {
-        if (GmMoney >= 200000)
+        if (GameManager.GmMoney >= 200000)
         {
-            IsCabinet = true;
+            Shop_Manager.IsCabinet = true;
+            GameManager.GmMoney -= 200000;
         }
         else
         {
-            IsCabinet = false;
+            Shop_Manager.IsCabinet = false;
         }
     }
     public void Poster_Buy() 
     {
-        IsPoster = true;
+        Shop_Manager.IsPoster = true;
     }
 }

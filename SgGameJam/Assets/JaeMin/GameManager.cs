@@ -24,6 +24,30 @@ public class GameManager : MonoBehaviour
     public GameObject shadow;
     public GameObject[] ItemTab;
 
+    [SerializeField]
+    GameObject Bear;
+    [SerializeField]
+    GameObject Poster;
+    [SerializeField]
+    GameObject Console;
+    [SerializeField]
+    GameObject Flower;
+    [SerializeField]
+    GameObject Cabinet;
+
+
+    private void Awake()
+    {
+        var Objs = FindObjectsOfType<GameManager>();
+        if (Objs.Length == 1)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void OnValidate()
     {
         shadow.SetActive(false);
@@ -42,7 +66,73 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         GmStatusSlider();
+        Bear_Active();
+        Cabinet_Active();
+        Console_Active();
+        Flower_Active();
+        Poster_Active();
+        if (Input.GetKeyDown(KeyCode.Space)) 
+        {
+            GmMoney += 100000;
+        }
     }
+
+    void Bear_Active()
+    {
+        if (Shop_Manager.IsBear == true)
+        {
+            Bear.SetActive(true);
+        }
+        else 
+        {
+            Bear.SetActive(false);
+        }
+    }
+    void Cabinet_Active()
+    {
+        if (Shop_Manager.IsCabinet == true)
+        {
+            Cabinet.SetActive(true);
+        }
+        else
+        {
+            Cabinet.SetActive(false);
+        }
+    }
+    void Console_Active()
+    {
+        if (Shop_Manager.IsConsole == true)
+        {
+            Console.SetActive(true);
+        }
+        else
+        {
+            Console.SetActive(false);
+        }
+    }
+    void Flower_Active()
+    {
+        if (Shop_Manager.IsFlower == true)
+        {
+            Flower.SetActive(true);
+        }
+        else
+        {
+            Flower.SetActive(false);
+        }
+    }
+    void Poster_Active()
+    {
+        if (Shop_Manager.IsPoster == true)
+        {
+            Poster.SetActive(true);
+        }
+        else
+        {
+            Poster.SetActive(false);
+        }
+    }
+
     IEnumerator GameMaking() //게임 개발 과정
     {
         yield return new WaitForSeconds(1); //1초마다
